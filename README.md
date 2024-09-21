@@ -49,7 +49,7 @@ Besides, since $p_g(x)\times e^{d(x)}$ is not well normalized (our logit $d(x)$ 
 
 Following this insight, however, we will encounter two issues hindering the feasibility.
 
-1. Doing MCMC and Sampling from $p^{*}_d(x) = p_g(x) \times e^{d(x)} / Z_{0}$ in the high dimensional $x$ space is inefficient and impractical.
+1. Doing MCMC and Sampling from $p^{*}_d(x) = p_g(x) e^{d(x)} / Z_{0}$ in the high dimensional $x$ space is inefficient and impractical.
 
 2. The even worse issue is, $p_g(x)$ is implicitly defined since all we have is the deterministic function form of $x = G_\phi(z)$.
 
