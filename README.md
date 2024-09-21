@@ -33,8 +33,11 @@ Given a nearly optimal Discriminator, $D(x)$, the seminal paper of GAN (Goodfell
 
 where $p_d(x)$ denotes the real data distribution and $p_g(x)$ is the implicit distribution contained in the generator.
 
-In this case, we can further derive that $\dfrac{p_d(x)}{p_d(x) + p_g(x)} = \dfrac{1}{1+\dfrac{p_g(x)}{p_d(x)}} = \dfrac{1}{1 + \exp(-d(x))} = \bf{sigmoid}(d(x))$, 
-where $d(x)$ is the logit of the sigmoid function.
+In this case, we can further derive that 
+
+$\dfrac{p_d(x)}{p_d(x) + p_g(x)} = \dfrac{1}{1+\dfrac{p_g(x)}{p_d(x)}} = \dfrac{1}{1 + \exp(-d(x))} = \bf{sigmoid}(d(x))$, 
+
+where $d(x)$ is the logit of sigmoid function.
 
 This derivation says that, once we have trained our discriminator as optimal as possible (by using SGD), the logit of $D(x)$ gives us the relation between $p_d(x)$ and $p_g(x)$ that $d(x) = -\ln{\dfrac{p_g(x}{p_d(x)}} \Rightarrow p_d(x) = p_g(x)\times e^{d(x)}$.
 
@@ -46,7 +49,7 @@ Besides, since $p_g(x)\times e^{d(x)}$ is not well normalized (our logit $d(x)$ 
 
 Following this insight, however, we will encounter two issues hindering the feasibility.
 
-1. Doing MCMC and Sampling from $p^*_{d}(x) = p_g(x)\times e^{d(x)} / Z_{0}$ in the high dimensional $x$ space is inefficient and impractical.
+1. Doing MCMC and Sampling from $p^{*}_d(x) = p_g(x) \times e^{d(x)} / Z_{0}$ in the high dimensional $x$ space is inefficient and impractical.
 
 2. The even worse issue is, $p_g(x)$ is implicitly defined since all we have is the deterministic function form of $x = G_\phi(z)$.
 
@@ -117,54 +120,54 @@ The following figures are the visualization results in the training process.
 | baseline | Training with DDLS|
 | ---------- | ---------- |
 | Inception Score = 2.351 | Inception Score = 2.342 |
-| ![is_baseline](assets/basline/inception_score.png)| ![is_ddls](assets/DDLS/inception_score.png)|
+| ![is_baseline](assets/baseline/inception_score.png)| ![is_ddls](assets/DDLS/inception_score.png)|
 
 #### Loss_G
 | baseline | Training with DDLS|
 | ---------- | ---------- |
-| ![lossG_baseline](assets/basline/loss_G.png)| ![lossG_ddls](assets/DDLS/loss_G.png)|
+| ![lossG_baseline](assets/baseline/loss_G.png)| ![lossG_ddls](assets/DDLS/loss_G.png)|
 
 #### Loss_D
 | baseline | Training with DDLS|
 | ---------- | ---------- |
-| ![lossD_baseline](assets/basline/loss_D.png)| ![lossD_ddls](assets/DDLS/loss_D.png)|
+| ![lossD_baseline](assets/baseline/loss_D.png)| ![lossD_ddls](assets/DDLS/loss_D.png)|
 
 #### Synthesized Data in training process
 
 | training step 0 (initial)||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step0](assets/basline/_train_logging/sampled_image_00000001.png)| ![ddls_step0](assets/DDLS/_train_logging/sampled_image_00000001.png)|
+| ![baseline_step0](assets/baseline/_train_logging/sampled_image_00000001.png)| ![ddls_step0](assets/DDLS/_train_logging/sampled_image_00000001.png)|
 
 | step 400||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step400](assets/basline/_train_logging/sampled_image_00000401.png)| ![ddls_step400](assets/DDLS/_train_logging/sampled_image_00000401.png)|
+| ![baseline_step400](assets/baseline/_train_logging/sampled_image_00000401.png)| ![ddls_step400](assets/DDLS/_train_logging/sampled_image_00000401.png)|
 
 | step 800||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step800](assets/basline/_train_logging/sampled_image_00000801.png)| ![ddls_step800](assets/DDLS/_train_logging/sampled_image_00000801.png)|
+| ![baseline_step800](assets/baseline/_train_logging/sampled_image_00000801.png)| ![ddls_step800](assets/DDLS/_train_logging/sampled_image_00000801.png)|
 
 | step 1200||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step1200](assets/basline/_train_logging/sampled_image_00001201.png)| ![ddls_step1200](assets/DDLS/_train_logging/sampled_image_00001201.png)|
+| ![baseline_step1200](assets/baseline/_train_logging/sampled_image_00001201.png)| ![ddls_step1200](assets/DDLS/_train_logging/sampled_image_00001201.png)|
 
 | step 1600||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step1600](assets/basline/_train_logging/sampled_image_00001601.png)| ![ddls_step1600](assets/DDLS/_train_logging/sampled_image_00001601.png)|
+| ![baseline_step1600](assets/baseline/_train_logging/sampled_image_00001601.png)| ![ddls_step1600](assets/DDLS/_train_logging/sampled_image_00001601.png)|
 
 | step 8000||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step8000](assets/basline/_train_logging/sampled_image_00008001.png)| ![ddls_step8000](assets/DDLS/_train_logging/sampled_image_00008001.png)|
+| ![baseline_step8000](assets/baseline/_train_logging/sampled_image_00008001.png)| ![ddls_step8000](assets/DDLS/_train_logging/sampled_image_00008001.png)|
 
 | step 20000||
 | ---------- |--------------|
 | baseline | Training with DDLS|
-| ![baseline_step20000](assets/basline/_train_logging/sampled_image_00020001.png)| ![ddls_step20000](assets/DDLS/_train_logging/sampled_image_00020001.png)|
+| ![baseline_step20000](assets/baseline/_train_logging/sampled_image_00020001.png)| ![ddls_step20000](assets/DDLS/_train_logging/sampled_image_00020001.png)|
 
 Since the MNIST may be trivial in the normal GAN training. The effect of DDLS is not obvious in the experiments above. 
 
