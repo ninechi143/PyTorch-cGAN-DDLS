@@ -12,7 +12,7 @@ However, the authors do not provide the official training codes (at least I can'
 
 In `./utils/model.py`, I have encapsulated the whole Discriminator Driven Latent Sampling (DDLS) process as the API of the class of `cGAN`, please check it.
 
-Hope this repositary can help you.
+Hope this repository can help you.
 
 
 ---------------------------------------------------------------------------
@@ -20,6 +20,8 @@ Hope this repositary can help you.
 
 * PyTorch
 * torchvision
+* torchmetrics
+* torch-fidelity
 * numpy
 * tqdm
 * opencv-python
